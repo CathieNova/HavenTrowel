@@ -22,7 +22,7 @@ public class ModEngLangProvider extends LanguageProvider
         add("item.haventrowel.trowel.tooltip.hotbar", "§bRight click§r to place random blocks from the hotbar.");
         add("item.haventrowel.trowel.tooltip.inventory", "§bRight click§r to place random blocks from the inventory and hotbar.");
 
-        add("jei.haventrowel.trowel.desc.line1", "Trowels are used to place random blocks from the hotbar. Right click to place a block.");
+        add("jei.haventrowel.trowel.desc.line", "Places a random valid block from your hotbar.");
 
         add("advancements.haventrowel.trowel.title", "Trowel");
         add("advancements.haventrowel.trowel.description", "A tool for placing random blocks from the hotbar.");

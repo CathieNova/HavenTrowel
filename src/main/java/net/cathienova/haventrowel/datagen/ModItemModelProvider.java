@@ -2,30 +2,22 @@ package net.cathienova.haventrowel.datagen;
 
 import net.cathienova.haventrowel.HavenTrowel;
 import net.cathienova.haventrowel.item.ModItems;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredItem;
 
-public class ModItemModelProvider extends ItemModelProvider
+public class ModItemModelProvider extends ModelProvider
 {
-    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, HavenTrowel.MOD_ID, existingFileHelper);
+    public ModItemModelProvider(PackOutput output)
+    {
+        super(output, HavenTrowel.MOD_ID);
     }
 
     @Override
-    protected void registerModels()
+    protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels)
     {
-        handHeldItem(ModItems.trowel);
-    }
-
-
-    private ItemModelBuilder handHeldItem(DeferredItem<Item> item) {
-        return withExistingParent(item.getId().getPath(),
-                ResourceLocation.parse("item/handheld")).texture("layer0",
-                ResourceLocation.fromNamespaceAndPath(HavenTrowel.MOD_ID,"item/" + item.getId().getPath()));
+        itemModels.generateFlatItem(ModItems.trowel.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 }
